@@ -29,6 +29,14 @@ public class ProductUserNotification {
 
     private Long lastSuccessUserId;
 
+    public ProductUserNotification(Product product, Long userId, NotificationStatus notificationStatus, LocalDateTime createdAt, Long lastSuccessUserId) {
+        this.product = product;
+        this.userId = userId;
+        this.notificationStatus = notificationStatus;
+        this.createdAt = createdAt;
+        this.lastSuccessUserId = lastSuccessUserId;
+    }
+
     public void markAsSent() {
         this.notificationStatus = NotificationStatus.SENT;
     }

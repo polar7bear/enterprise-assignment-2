@@ -20,6 +20,11 @@ public class Product {
     private int stock;
     private int restockIteration; //상품 재입고 회차
 
+    public Product(String name, int stock, int restockIteration) {
+        this.name = name;
+        this.stock = stock;
+        this.restockIteration = restockIteration;
+    }
 
     public void decreaseStock() {
         this.stock = Math.max(0, this.stock - 1);
