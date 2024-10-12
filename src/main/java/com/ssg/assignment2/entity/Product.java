@@ -33,4 +33,8 @@ public class Product {
     public void incrementRestockIteration() {
         this.restockIteration++;
     }
+
+    public void reStock(int amount) {
+        this.stock += amount;
+    }
 }
