@@ -27,6 +27,13 @@ public class NotificationService {
     private final ProductUserNotificationRepository productUserNotificationRepository;
     private final ProductUserNotificationHistoryRepository productUserNotificationHistoryRepository;
 
+    /*
+    * 요구사항이 좀 애매한 것 같다.
+    * 상품 수량이 0개일 때 상품 재입고는 어떻게 하라는 것인지(요구사항에서는 api를 작성하라든지, 스케줄러 등을 통해 알아서 구현하라는 것인지 주어져있지않음)
+    * 그리고 만약 상품 재입고로 수량을 올리게되면, 트리거를 설정하여 자동적으로 알림이 가게 하라는 것인지
+    * 딱히 정해진게 없으니 위의 내용대로 알아서 해야할 것 같다. */
+    // TODO: 스케줄러와 트리거 로직 구현
+
     @Transactional
     public void sendRestockNotification(Long productId) {
         Product product = productRepository.findById(productId)
