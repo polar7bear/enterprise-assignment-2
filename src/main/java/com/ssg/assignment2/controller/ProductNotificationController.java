@@ -19,8 +19,8 @@ public class ProductNotificationController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/admin/products/{productId}}/notifications/re-stock")
+    /*@PostMapping("/admin/products/{productId}}/notifications/re-stock")
     public ResponseEntity<Void> sendRestockNotifications() {
         return null;
-    }
+    }*/
 }

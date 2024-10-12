@@ -6,7 +6,7 @@ services:
       context: ./db
     image: assignment2/database
     environment:
-      - MYSQL_DATABASE=assignment
+      - MYSQL_DATABASE=assignment2
       - MYSQL_ROOT_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
     ports:
       - "3306:3306"
