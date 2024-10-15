@@ -11,6 +11,9 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(indexes = {
+        @Index(name = "idx_pun_product_id_noti_status", columnList = "product_id, notificationStatus")
+})
 public class ProductUserNotification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

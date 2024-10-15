@@ -9,6 +9,9 @@ import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(indexes = {
+        @Index(name = "idx_punh_noti_hisotry_id_user_id", columnList = "notification_history_id, userId")
+})
 public class ProductUserNotificationHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
