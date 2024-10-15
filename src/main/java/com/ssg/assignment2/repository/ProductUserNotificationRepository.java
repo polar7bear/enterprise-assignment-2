@@ -10,12 +10,18 @@ import java.util.List;
 
 public interface ProductUserNotificationRepository extends JpaRepository<ProductUserNotification, Long> {
 
-    @Query(
-            "SELECT pun " +
-                    "FROM ProductUserNotification pun " +
-                    "WHERE pun.product.id = :productId " +
-                    "AND pun.notificationStatus = :status " +
-                    "ORDER BY pun.createdAt ASC"
-    )
+    @Query("SELECT pun " +
+            "FROM ProductUserNotification pun " +
+            "WHERE pun.product.id = :productId " +
+            "AND pun.notificationStatus = :status " +
+            "ORDER BY pun.createdAt ASC")
     List<ProductUserNotification> findByProductIdAndNotificationStatus(Long productId, @Param("status") NotificationStatus notificationStatus);
+
+    @Query("SELECT pun " +
+            "FROM ProductUserNotification pun " +
+            "WHERE pun.product.id = :productId " +
+            "AND pun.notificationStatus = :status " +
+            "AND pun.id > :lastId " +
+            "ORDER BY pun.id ASC")
+    List<ProductUserNotification> findByProductIdAndNotificationStatusAfterId(Long productId, @Param("status") NotificationStatus status, Long lastId);
 }
