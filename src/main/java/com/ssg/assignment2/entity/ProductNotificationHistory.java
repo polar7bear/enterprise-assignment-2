@@ -3,11 +3,13 @@ package com.ssg.assignment2.entity;
 import com.ssg.assignment2.entity.status.NotificationHistoryStatus;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ProductNotificationHistory {
     @Id
@@ -25,6 +27,8 @@ public class ProductNotificationHistory {
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    private Long lastSuccessUserId;
 
     public ProductNotificationHistory(Product product, int iteration, NotificationHistoryStatus status) {
         this.product = product;
@@ -46,6 +50,10 @@ public class ProductNotificationHistory {
     public void markAsCanceledByError() {
         this.status = NotificationHistoryStatus.CANCELED_BY_ERROR;
         this.updatedAt = LocalDateTime.now();
+    }
+
+    public void recordLastSuccessId(Long lastSuccess) {
+        this.lastSuccessUserId = lastSuccess;
     }
 
 }

@@ -30,19 +30,19 @@ public class DataInitializer implements CommandLineRunner {
 
         for (long userId = 1; userId <= product.getStock(); userId++) {
             ProductUserNotification notification = new ProductUserNotification(
-                    product, userId, NotificationStatus.PENDING, LocalDateTime.now(), 0L);
+                    product, userId, NotificationStatus.PENDING, LocalDateTime.now());
             productUserNotificationRepository.save(notification);
         }
 
         for (long userId = 1; userId <= product2.getStock(); userId++) {
             ProductUserNotification notification = new ProductUserNotification(
-                    product2, userId, NotificationStatus.PENDING, LocalDateTime.now(), 0L);
+                    product2, userId, NotificationStatus.PENDING, LocalDateTime.now());
             productUserNotificationRepository.save(notification);
         }
 
         for (long userId = 1; userId <= 3; userId++) {
             ProductUserNotification notification = new ProductUserNotification(
-                    product3, userId, NotificationStatus.PENDING, LocalDateTime.now(), 0L);
+                    product3, userId, NotificationStatus.PENDING, LocalDateTime.now());
             productUserNotificationRepository.save(notification);
         }
     }
